@@ -5,6 +5,7 @@ import (
 	"api/src/modelos"
 	"api/src/repositorios"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -12,7 +13,8 @@ import (
 
 func CriarUsuarios(w http.ResponseWriter, r *http.Request) {
 	corpoRequest, erro := ioutil.ReadAll(r.Body)
-	if erro != erro {
+	if erro != nil {
+
 		log.Fatal(erro)
 	}
 
@@ -26,9 +28,17 @@ func CriarUsuarios(w http.ResponseWriter, r *http.Request) {
 	if erro != nil {
 		log.Fatal(erro)
 	}
+	defer db.Close()
 
 	reposotorio := repositorios.NovoReposotioDeUsuarios(db)
-	reposotorio.CriarInBD(usuario)
+
+	usuarioID, erro := reposotorio.CriarInBD(usuario)
+
+	if erro != erro {
+		log.Fatal(erro)
+	}
+
+	w.Write([]byte(fmt.Sprintf("ID inserido: %d", usuarioID)))
 
 }
 

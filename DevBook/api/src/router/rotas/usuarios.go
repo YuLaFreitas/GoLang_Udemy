@@ -7,35 +7,35 @@ import (
 
 var rotasUsuarios = []Rota{
 	{
-		URI:                "/Usuarios",
+		URI:                "/usuarios",
 		Metodo:             http.MethodPost,
 		Funcao:             controllers.CriarUsuarios,
 		RequerAutenticacao: false,
 	},
 
 	{
-		URI:                "/Usuarios",
+		URI:                "/usuarios",
 		Metodo:             http.MethodGet,
 		Funcao:             controllers.BuscarUsuarios,
 		RequerAutenticacao: false,
 	},
 
 	{
-		URI:                "/Usuarios/{usuarioId}",
+		URI:                "/usuarios/{usuarioId}",
 		Metodo:             http.MethodGet,
 		Funcao:             controllers.BuscarUsuario,
 		RequerAutenticacao: false,
 	},
 
 	{
-		URI:                "/Usuarios/{usuarioId}",
+		URI:                "/usuarios/{usuarioId}",
 		Metodo:             http.MethodPut,
 		Funcao:             controllers.AtualizandoUsuarios,
 		RequerAutenticacao: false,
 	},
 
 	{
-		URI:                "/Usuarios/{usuarioId}",
+		URI:                "/usuarios/{usuarioId}",
 		Metodo:             http.MethodDelete,
 		Funcao:             controllers.DeletarUsuarios,
 		RequerAutenticacao: false,
