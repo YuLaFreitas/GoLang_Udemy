@@ -41,3 +41,4 @@ func (repositorio Usuarios) CriarInBD(usuario modelos.Usuario) (uint64, error) {
 	return uint64(ultimoIdInserido), nil
 
 }
+
